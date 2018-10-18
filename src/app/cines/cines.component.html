@@ -1,0 +1,82 @@
+<div class="jumbotron" style="text-align:center">
+  <h1>
+    Cines
+  </h1>
+</div>
+<div class="container col-sm-10">
+  <agm-map [latitude]="latitud" [longitude]="longitud" [zoom]=13>
+      <ng-container *ngFor="let cine of cines">
+        <agm-marker [latitude]="cine.latitud" [longitude]="cine.longitud">
+            <agm-info-window >
+                <h5>{{cine.nombre}}</h5>
+                <p>Dirección: {{cine.direccion}}</p>
+                <p>Horario: {{cine.horario}}</p>
+            </agm-info-window>
+        </agm-marker>
+      </ng-container>
+  </agm-map>
+</div>
+
+<div class="container">
+  <h2 style="text-align:center; margin:25px">Lista de cines</h2>            
+  <table class="table table-striped mb-4">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Horario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let cine of cines">
+        <tr>
+          <td class = "name" (click)="infoCine(cine)">{{cine.nombre}}</td>
+          <td>{{cine.direccion}}</td>
+          <td>{{cine.horario}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <div class="container" [ngClass]="{hidden : hidden}">
+    <table class="table table-striped mb-4">
+        <thead>
+          <tr>
+            <th>Película</th>
+            <th>Sala</th>
+            <th>Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let sesion of cineSeleccionado.sesiones">
+            <tr>
+              <td>{{sesion.pelicula}}</td>
+              <td>{{sesion.sala}}</td>
+              <td>{{sesion.hora}}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+  </div>
+
+  <div class="table-container">
+      <table class="table table-filter">
+        <tbody>
+          <tr data-status="pagado">
+            <td>
+              <div class="media">
+                <a href="#" class="pull-left">
+                  <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
+                </a>
+                <div class="media-body">
+                  <h4 class="title">
+                    Lorem Impsum
+                  </h4>
+                  <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
