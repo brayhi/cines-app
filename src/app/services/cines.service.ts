@@ -11,7 +11,7 @@ export class CinesService {
     longitud: -3.703790,
     direccion: "Calle del Dr Cortezo, 6, 28012 Madrid",
     sesiones: [
-      {pelicula: "First Man - El Primer Hombre", sala: "Sala 2", hora: "19:00"},
+      {pelicula: "Origen", sala: "Sala 2", hora: "19:00"},
       {pelicula: "Venom", sala: "Sala 1", hora: "16:00"},
       {pelicula: "La Sombra de la Ley", sala: "Sala 9", hora: "20:30"},
       {pelicula: "First Man - El Primer Hombre", sala: "Sala 6", hora: "17:00"},
@@ -25,7 +25,7 @@ export class CinesService {
     sesiones: [
       {pelicula: "First Man - El Primer Hombre", sala: "Sala 2", hora: "19:00"},
       {pelicula: "Venom", sala: "Sala 1", hora: "16:00"},
-      {pelicula: "La Sombra de la Ley", sala: "Sala 9", hora: "20:30"},
+      {pelicula: "Mulholland Drive", sala: "Sala 9", hora: "20:30"},
       {pelicula: "First Man - El Primer Hombre", sala: "Sala 6", hora: "17:00"},
     ],
     horario: "De 17:00 a 1:00",
@@ -62,5 +62,24 @@ export class CinesService {
   public getCines(){
     let URL = this.URL_WS;
     return this.http.get(URL, {headers: this.cabecera});
+  }
+
+  public getCinesPeli(nombrePeli: string){
+    let misCines: any[] = [];
+    this.getCines().subscribe((cines: any) => {
+      cines = JSON.parse(cines._body).cines;
+      cines = Object.keys(cines).map(function(key){
+        console.log(cines[key]);
+        return cines[key];     
+      });
+      cines.forEach(cine => {
+        cine.sesiones.forEach(sesion => {
+          if (sesion.pelicula == nombrePeli){
+            misCines.push(cine);
+          }
+        });
+      });
+    });
+  return misCines;
   }
 }

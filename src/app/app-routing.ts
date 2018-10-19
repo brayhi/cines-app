@@ -6,7 +6,8 @@ import { CinesComponent } from './cines/cines.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
-  { path: 'cines', component: CinesComponent}
+  { path: 'cines', component: CinesComponent},
+  { path: 'cines/:nombre', component: CinesComponent}
 ]
 
 @NgModule({

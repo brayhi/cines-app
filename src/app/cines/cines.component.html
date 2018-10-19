@@ -38,6 +38,7 @@
     </tbody>
   </table>
   <div class="container" [ngClass]="{hidden : hidden}">
+    <h4 class="text-center">{{cineSeleccionado.nombre}}</h4>
     <table class="table table-striped mb-4">
         <thead>
           <tr>
@@ -48,35 +49,22 @@
         </thead>
         <tbody>
           <ng-container *ngFor="let sesion of cineSeleccionado.sesiones">
-            <tr>
-              <td>{{sesion.pelicula}}</td>
-              <td>{{sesion.sala}}</td>
-              <td>{{sesion.hora}}</td>
-            </tr>
+            <ng-container *ngIf="(pelicula != null) && (sesion.pelicula == pelicula)">
+              <tr>
+                <td><a routerLink="/formulario">{{sesion.pelicula}}</a></td>
+                <td>{{sesion.sala}}</td>
+                <td>{{sesion.hora}}</td>
+              </tr>
+            </ng-container>
+            <ng-container *ngIf="pelicula == null">
+                <tr>
+                  <td><a routerLink="/formulario">{{sesion.pelicula}}</a></td>
+                  <td>{{sesion.sala}}</td>
+                  <td>{{sesion.hora}}</td>
+                </tr>
+              </ng-container>
           </ng-container>
         </tbody>
       </table>
   </div>
-
-  <div class="table-container">
-      <table class="table table-filter">
-        <tbody>
-          <tr data-status="pagado">
-            <td>
-              <div class="media">
-                <a href="#" class="pull-left">
-                  <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-                </a>
-                <div class="media-body">
-                  <h4 class="title">
-                    Lorem Impsum
-                  </h4>
-                  <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 </div>
