@@ -1,0 +1,27 @@
+.img-size{
+    position: relative;
+    width: 100%;
+    height: 790px;
+
+}
+.pos-titulo{
+    position: absolute;
+    bottom:20%;
+    left: 40%;
+    right: 40%;
+}
+.pos-button{
+    position: absolute;
+    bottom: 10%;
+    left: 30%;
+    right: 30%;
+}
+
+.div-img{
+    position:fixed;
+    height: 100%;
+    width: 100%;
+}
+.img-size-card{
+    height: 300px;
+}
