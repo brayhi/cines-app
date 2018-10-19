@@ -38,7 +38,8 @@ export class HomeComponent implements OnInit {
   //Añadir id en la funcion del html
 
   verSesiones(nombre){
-    //this.route.navigate(['/cines', nombre])
+    console.log(nombre);
+    this.route.navigate(['/cines', nombre])
 
   }
 

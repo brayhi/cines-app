@@ -1,0 +1,15 @@
+agm-map {
+    height: 400px;
+}
+
+.hidden{
+    display: none
+}
+
+.name {
+    color: #008ae6;
+}
+
+.name:hover{
+    color: #004d80;
+}

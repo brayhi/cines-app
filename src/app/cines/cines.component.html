@@ -1,0 +1,70 @@
+<div class="jumbotron" style="text-align:center">
+  <h1>
+    Cines
+  </h1>
+</div>
+<div class="container col-sm-10">
+  <agm-map [latitude]="latitud" [longitude]="longitud" [zoom]=13>
+      <ng-container *ngFor="let cine of cines">
+        <agm-marker [latitude]="cine.latitud" [longitude]="cine.longitud">
+            <agm-info-window >
+                <h5>{{cine.nombre}}</h5>
+                <p>Dirección: {{cine.direccion}}</p>
+                <p>Horario: {{cine.horario}}</p>
+            </agm-info-window>
+        </agm-marker>
+      </ng-container>
+  </agm-map>
+</div>
+
+<div class="container">
+  <h2 style="text-align:center; margin:25px">Lista de cines</h2>            
+  <table class="table table-striped mb-4">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Horario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let cine of cines">
+        <tr>
+          <td class = "name" (click)="infoCine(cine)">{{cine.nombre}}</td>
+          <td>{{cine.direccion}}</td>
+          <td>{{cine.horario}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <div class="container" [ngClass]="{hidden : hidden}">
+    <h4 class="text-center">{{cineSeleccionado.nombre}}</h4>
+    <table class="table table-striped mb-4">
+        <thead>
+          <tr>
+            <th>Película</th>
+            <th>Sala</th>
+            <th>Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let sesion of cineSeleccionado.sesiones">
+            <ng-container *ngIf="(pelicula != null) && (sesion.pelicula == pelicula)">
+              <tr>
+                <td><a routerLink="/formulario">{{sesion.pelicula}}</a></td>
+                <td>{{sesion.sala}}</td>
+                <td>{{sesion.hora}}</td>
+              </tr>
+            </ng-container>
+            <ng-container *ngIf="pelicula == null">
+                <tr>
+                  <td><a routerLink="/formulario">{{sesion.pelicula}}</a></td>
+                  <td>{{sesion.sala}}</td>
+                  <td>{{sesion.hora}}</td>
+                </tr>
+              </ng-container>
+          </ng-container>
+        </tbody>
+      </table>
+  </div>
+</div>
