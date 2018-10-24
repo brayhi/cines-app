@@ -82,4 +82,10 @@ export class CinesService {
     });
   return misCines;
   }
+  
+  public updateEntradas(id:string, sesion:any){
+    let URL = this.URL_WS + "sesiones/" + id;
+    console.log(URL);
+    return this.http.put(URL, sesion, {headers: this.cabecera});
+  }
 }

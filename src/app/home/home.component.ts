@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 
   }
   getPelis(){
-    this.pelisServices.getPeliculas().subscribe((data:any) => {this.peliculas = data.list});
+    this.pelisServices.getPeliculas().subscribe((data:any) => {console.log(data.list); this.peliculas = data.list});
 
   }
   chapuza(i){
@@ -38,9 +38,7 @@ export class HomeComponent implements OnInit {
   //Añadir id en la funcion del html
 
   verSesiones(nombre){
-    console.log(nombre);
-    this.route.navigate(['/cines', nombre])
-
+    this.route.navigate(['/cines', nombre]);
   }
 
   verInfo(){
