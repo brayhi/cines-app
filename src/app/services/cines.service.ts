@@ -74,7 +74,10 @@ export class CinesService {
       });
       cines.forEach(cine => {
         cine.sesiones.forEach(sesion => {
-          if (sesion.pelicula == nombrePeli){
+          var cineFound = misCines.find(function(element) {
+            return element._id == cine._id;
+          });
+          if (sesion.pelicula == nombrePeli && !cineFound){
             misCines.push(cine);
           }
         });
