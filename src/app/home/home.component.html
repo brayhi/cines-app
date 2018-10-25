@@ -5,13 +5,13 @@
       <ng-container *ngFor="let peli of peliculas; let i = index">
       
       <div class="carousel-item "  [ngClass]="{'active': i == 0}" >
-        <img class="w-100 img-size" src="assets/images/seven.jpg" alt="First slide">
+        <img class="w-100 img-size" src="assets/images/{{peli.titulo}}.jpg" alt="First slide">
         <div class="pos-titulo col-3 ">
-          <h1 class="text-center">{{peli.titulo}}</h1>
+          <!--<h1 class="text-center">{{peli.titulo}}</h1>-->
         </div>
         <div class="pos-button row">
-          <button type="button" class="btn btn-outline-secondary col-6 " (click)=verSesiones(peli.titulo)>Salas</button>
-          <button type="button" class="btn btn-outline-secondary col-6" (click)=verInfo(peli._id)>+Info</button>
+          <button type="button" class="btn btn-outline-secondary col-6 bg-dark text-light " (click)=verSesiones(peli.titulo)>Salas</button>
+          <button type="button" class="btn btn-outline-secondary col-6 bg-dark text-light" (click)=verInfo(peli._id)>+Info</button>
         </div>
       </div>
 
