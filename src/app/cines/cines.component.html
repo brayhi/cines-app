@@ -5,6 +5,7 @@
 </div>
 <div class="container col-sm-10">
   <agm-map [latitude]="latitud" [longitude]="longitud" [zoom]=13>
+    <ng-container *ngIf="cines.length > 0">
       <ng-container *ngFor="let cine of cines">
         <agm-marker [latitude]="cine.latitud" [longitude]="cine.longitud">
             <agm-info-window >
@@ -14,6 +15,7 @@
             </agm-info-window>
         </agm-marker>
       </ng-container>
+    </ng-container>
   </agm-map>
 </div>
 
@@ -45,6 +47,9 @@
             <th>Película</th>
             <th>Sala</th>
             <th>Hora</th>
+            <th>Entradas disponibles</th>
+            <th>Cantidad de entradas</th>
+            <th>Comprar</th>
           </tr>
         </thead>
         <tbody>
@@ -54,14 +59,20 @@
                 <td><a routerLink="/formulario">{{sesion.pelicula}}</a></td>
                 <td>{{sesion.sala}}</td>
                 <td>{{sesion.hora}}</td>
+                <td>{{sesion.n_entrada}}</td>
+                <td><input #entradas type="number" ></td>
+                <td><button (click)="comprar(entradas.value, sesion)">+</button></td>
               </tr>
             </ng-container>
             <ng-container *ngIf="pelicula == null">
-                <tr>
-                  <td><a routerLink="/formulario">{{sesion.pelicula}}</a></td>
-                  <td>{{sesion.sala}}</td>
-                  <td>{{sesion.hora}}</td>
-                </tr>
+              <tr>
+                <td><a routerLink="/formulario">{{sesion.pelicula}}</a></td>
+                <td>{{sesion.sala}}</td>
+                <td>{{sesion.hora}}</td>
+                <td>{{sesion.n_entrada}}</td>
+                <td><input #entradas type="number" ></td>
+                <td><button (click)="comprar(entradas.value, sesion)">+</button></td>
+              </tr>
               </ng-container>
           </ng-container>
         </tbody>

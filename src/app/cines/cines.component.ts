@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CinesComponent implements OnInit {
   latitud: number;
   longitud: number;
-  cines: any;
+  cines: any = [];
   cineSeleccionado: any = {};
   hidden: boolean;
   pelicula: string;
@@ -42,6 +42,11 @@ export class CinesComponent implements OnInit {
   infoCine(cine){
     this.hidden = false;
     this.cineSeleccionado = cine;
+  }
+
+  comprar(entradas, sesion){
+    sesion.n_entrada -= entradas;
+    this.cinesService.updateEntradas(this.cineSeleccionado._id, sesion).subscribe();
   }
 
   ngOnInit() {

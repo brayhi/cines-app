@@ -23,24 +23,8 @@ export class HomeComponent implements OnInit {
   //   this.id
   // }
 
-  prueba(peli){
-    console.log(peli.titulo);
-    if(peli == this.peliculas[0]){
-      
-      return true
-    }
-    return false
-
-
-  }
   getPelis(){
-    this.pelisServices.getPeliculas().subscribe((data:any) => {console.log(typeof(data.list));console.log(data.list);
-    //this.peliculas = data.list
-    for(var dat in data.list){
-      this.peliculas.push(data.list[dat]);
-    }
-  });
-    
+    this.pelisServices.getPeliculas().subscribe((data:any) => {console.log(data.list); this.peliculas = data.list});
 
   }
   chapuza(i){
@@ -49,9 +33,7 @@ export class HomeComponent implements OnInit {
   //Añadir id en la funcion del html
 
   verSesiones(nombre){
-    console.log(nombre);
-    this.route.navigate(['/cines', nombre])
-
+    this.route.navigate(['/cines', nombre]);
   }
 
   verInfo(id:string){
