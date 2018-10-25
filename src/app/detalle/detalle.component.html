@@ -1,0 +1,31 @@
+<section class="container-fluid">
+  <div class="row justify-content-center">
+  
+    <article class="col-10">
+      <h1>{{pelicula.titulo}}</h1><br>
+      <img src="../assets/images/{{pelicula.caratula}}" class="img-fluid"/><br><br>
+      <p>{{pelicula.anio}}</p><p>{{pelicula.genero}}</p><p>{{pelicula.sinopsis}}</p><br>
+      <br>
+      <a routerLink="/cines/{{pelicula.titulo}}">reservar entrada</a><br><br>
+    </article>
+    <aside class="co-2">publicida</aside>
+
+
+  
+  </div>
+  
+</section>
+<section class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h1>comentarios</h1>
+      <div class="mensajes"></div>
+      <label>Nombre:</label><br>
+      <input type="text" /><br>
+      <label>mensaje:</label><br>
+      <textarea [(ngModel)]="comentario"></textarea>
+      <br>
+      <button (click)="comentar(comentario)">enviar</button>
+    </div>
+  </div>
+</section>

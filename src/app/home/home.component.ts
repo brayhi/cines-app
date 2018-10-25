@@ -9,25 +9,20 @@ import { PeliculaService } from '../services/pelicula.service';
 })
 export class HomeComponent implements OnInit {
 
-  peliculas:any = [];
+  peliculas:any =[];
 
   constructor(public route:Router, public pelisServices: PeliculaService) {
-    
-   }
+}
 
   ngOnInit() {
     this.getPelis();
 
-  }
-
-  prueba(peli,i){
-    if(peli == this.peliculas[0]){
-      return true
-    }
-    return false
-
 
   }
+  // setPelicula(index){
+  //   this.id
+  // }
+
   getPelis(){
     this.pelisServices.getPeliculas().subscribe((data:any) => {console.log(data.list); this.peliculas = data.list});
 
@@ -41,8 +36,9 @@ export class HomeComponent implements OnInit {
     this.route.navigate(['/cines', nombre]);
   }
 
-  verInfo(){
-    //this.route.navigate(['/peliculas', id])
+  verInfo(id:string){
+    console.log(id)
+    this.route.navigate(['/peliculas', id])
   }
 
   // //getPelis(){

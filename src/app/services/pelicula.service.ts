@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PeliculaService {
 
-  URL = "http://localhost:3000/peliculas/"
+  URL = "http://localhost:3000/peliculas/";
 
   constructor(private http:HttpClient) {
     console.log('service')
@@ -14,6 +14,9 @@ export class PeliculaService {
    }
 
   getPeliculas(){
-    return this.http.get('http://localhost:3000/peliculas/');
+    return this.http.get(this.URL);
+  }
+  getPelicula(id){
+    return this.http.get(this.URL+id)
   }
 }
