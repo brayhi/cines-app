@@ -33,7 +33,8 @@ export class HomeComponent implements OnInit {
     this.route.navigate(['/cines', nombre]);
   }
 
-  verInfo(){
+  verInfo(id){
+    console.log(id);
     //this.route.navigate(['/peliculas', id])
   }
 
