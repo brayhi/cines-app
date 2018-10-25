@@ -1,10 +1,10 @@
 <div class="div-img">
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" *ngFor="let peli of peliculas">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
     <div class="carousel-inner">
       <ng-container *ngFor="let peli of peliculas; let i = index">
       
-      <div class="carousel-item "  [ngClass]="{'active': prueba(peli)}" >
+      <div class="carousel-item "  [ngClass]="{'active': i == 0}" >
         <img class="w-100 img-size" src="assets/images/seven.jpg" alt="First slide">
         <div class="pos-titulo col-3 ">
           <h1 class="text-center">{{peli.titulo}}</h1>
@@ -17,7 +17,7 @@
 
 
     </ng-container>
-
+    </div>
     
     <a class="carousel-control-prev" href="#carouselExampleControls"  role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -27,24 +27,5 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-
-
   </div>
 </div>
-
-<!-- <div class="container mt-3">
-  <div class="row d-flex justify-content-between">
-    <div class="col-3" *ngFor="let peli of peliculas">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top img-size-card" src="assets/images/origen.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{peli.titulo}}</h5>
-          <div class="row">
-            <button class="btn btn-primary col-6" (click)=verSesiones(peli.nombre)>Salas</button>
-            <button class="btn btn-success col-6" (click)=info(peli)>+Info</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->

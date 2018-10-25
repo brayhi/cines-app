@@ -20,14 +20,6 @@ export class HomeComponent implements OnInit {
 
   }
 
-  prueba(peli,i){
-    if(peli == this.peliculas[0]){
-      return true
-    }
-    return false
-
-
-  }
   getPelis(){
     this.pelisServices.getPeliculas().subscribe((data:any) => {console.log(data.list); this.peliculas = data.list});
 
