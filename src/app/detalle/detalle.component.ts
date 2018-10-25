@@ -22,6 +22,6 @@ export class DetalleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPelicula()
+    this.getPelicula();
   }
 }
